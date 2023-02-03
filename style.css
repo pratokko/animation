@@ -99,6 +99,7 @@
     position: relative;
     z-index: 1;
     display: inline-block;
+    margin-bottom: 1rem;
 
 
 }
@@ -112,7 +113,47 @@
     width: calc(100% + 4rem);
     background: #ee6352;
     z-index: -1;
+    transform: scaleX(0.05);
+    transform-origin: left;
+    transition: transform 250ms ease-in;
 
+}
+
+.card:hover .card__title::after {
+    transform: scaleX(1)
+}
+
+.card__body {
+    color: transparent;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    transition: color 150ms 350ms;
+}
+
+
+
+.card__body::after {
+    content: '';
+    position: absolute;
+    top: -0.75rem;
+    left: -0.75rem;
+    bottom: -0.75rem;
+    right:-0.75rem;
+    background: white;
+    z-index: -1;
+    transform: scaleY(0);
+    transition: transform 250ms ease-in;
+    transition-delay: 250ms;
+    transform-origin: top;
+
+}
+.card:hover .card__body {
+    color: black;
+}
+
+.card:hover .card__body::after {
+    transform: scaleY(1);
 }
 
 body {
